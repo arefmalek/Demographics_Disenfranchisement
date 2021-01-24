@@ -80,9 +80,15 @@ const Camera = () => {
             </ImagePicker>
           </div>
           <form onSubmit={addData} className='button2'>
-              Age: <input value={age} onChange={handleAgeChange} className="formElement"/>
-              Gender: <input value={gender} onChange={handleGenderChange} className="formElement"/>
-              Race: <input value={race} onChange={handleRaceChange} className="formElement"/>
+              <div>
+                Age: <input value={age} onChange={handleAgeChange} className="formElement"/>
+              </div>
+              <div>
+                Gender: <input value={gender} onChange={handleGenderChange} className="formElement"/>
+              </div>
+              <div>
+                Race: <input value={race} onChange={handleRaceChange} className="formElement"/>
+              </div>
               <button type="submit">save</button>
             </form> 
         </div>
