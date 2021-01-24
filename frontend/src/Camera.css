@@ -1,6 +1,14 @@
 .body {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    
+    margin-top: 10vh;
+}
+
+.buttonBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 }

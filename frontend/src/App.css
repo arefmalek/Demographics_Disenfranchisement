@@ -2,10 +2,16 @@
   display: flex;
   font-family: monospace;
   flex-direction: column;
-  flex:auto;
+}
+
+#textblock {
+  height: 17vh;
 }
 
 button {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   border: 2px solid black;
   background-color: white;
   color: black;
@@ -16,8 +22,15 @@ button {
   border-radius: 5px;
   width: 200px;
   height: 100px;
-  position: fixed;
   
+}
+
+button:hover {
+  background-color: #5dcf61;
+}
+
+button:active {
+  margin-top: 10px;
 }
 
 .Start {

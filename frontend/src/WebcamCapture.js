@@ -23,11 +23,15 @@ const Camera = () => {
     if (display) {
       return (
         <div className="body">
-          <Webcam
-            audio={false}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-          />
+            <div className="cam">
+              <Webcam
+                audio={false}
+                ref={webcamRef}
+                screenshotFormat="image/jpeg"
+                forceScreenshotSourceSize="true"
+              />
+            </div>
+        
           <button onClick={capture}>Capture photo</button>
 
         </div>
@@ -41,8 +45,11 @@ const Camera = () => {
               src={imgSrc}
             />
           )}
+          <div className="buttonBlock">
           <button onClick={retake}>Retake</button>
           <button onClick={retake}>Proceed</button>
+          </div>
+
         </div>
       )
     }
