@@ -30,6 +30,18 @@ def predict():
         #parse into pytorch model
         #send into nischay's function
         #return to results back to the front end
+
+@app.route("/predictManuel", methods=['POST'])
+def predictManuel():
+    if request.method == 'POST':
+        content = request.get_json(silent=True)
+        age = content['a']
+        gender = content['g']
+        race = content['r']
+        print(age, race, gender)
+        return "junk"
+        
+
     
 if __name__ == "__main__":        
     app.run()                     
