@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Typical from "react-typical"
+import WebcamCapture from "./WebcamCapture"
 
 document.body.style = 'background: #e1f7e7;';
+
 function App() {
   
   return (
     <div className="App">
       <div className="Into">
-        <Typical
+        {/* <Typical
           loop={1}
           wrapper="b"
           steps={
@@ -18,7 +20,12 @@ function App() {
           }
           >
 
-        </Typical>
+        </Typical> */}
+
+        <WebcamCapture>
+
+        </WebcamCapture>
+        
       </div>
       
     </div>

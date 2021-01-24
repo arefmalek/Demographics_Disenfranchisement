@@ -3,5 +3,7 @@
   font-family: monospace;
   flex-direction: column;
   flex:auto;
+  align-items: center;
+  margin-top: 10vh;
 }
 
