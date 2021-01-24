@@ -48,13 +48,13 @@ const Camera = () => {
           <button onClick={capture}>Capture photo</button>
           <ImagePicker
             extensions={['jpg', 'jpeg']}
-            dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
+            dims={{minWidth: 100, maxWidth: 3800, minHeight: 100, maxHeight: 3800}}
             onChange={base64 => {
               console.log(base64)
               setImgSrc(base64)
               setDisplay(false)
             }}
-            onError={base64 => console.log("Error")}
+            onError={base64 => console.log(base64)}
           >
             <button>
               Click to upload image
