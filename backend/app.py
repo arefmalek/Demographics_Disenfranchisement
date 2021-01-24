@@ -6,6 +6,7 @@ from flask_cors import CORS
 
 
 
+
 app = Flask(__name__)    
 CORS(app)
 
@@ -14,12 +15,14 @@ def convert(img_data):
     with open("image.jpg", "wb") as fh:
         fh.write(base64.decodebytes(img_data))
 
+
 @app.route("/predict", methods=['POST'])       
 def predict():
     if request.method == 'POST':
         content = request.get_json(silent=True)
         print(content)
         base64Img = content['img']
+        base64Img = base64Img.replace("data:image/jpeg;base64,","")
         base64Img = base64Img.encode('ascii')
         print(base64Img)
         convert(base64Img)
