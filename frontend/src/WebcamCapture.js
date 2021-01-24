@@ -3,7 +3,7 @@ import {useState} from "react"
 import Webcam from "react-webcam"
 import "./Camera.css"
 import axios from 'axios'
-
+import {ImagePicker} from "react-file-picker"
 
 const Camera = () => {
     var webcamRef = React.useRef(null);
@@ -18,14 +18,19 @@ const Camera = () => {
     }, [webcamRef, setImgSrc]);
 
 
-    const imgObject = {
-      img: imgSrc
-    }
-
-    axios.post('http://127.0.0.1:5000/predict', imgObject)
+    
+    
+    
 
     const retake = () => {
       setDisplay(true)
+    }
+
+    const proc = () => {
+      const imgObject = {
+        img: imgSrc
+      }
+      axios.post('http://127.0.0.1:5000/predict', imgObject)
     }
 
     if (display) {
@@ -41,8 +46,21 @@ const Camera = () => {
             </div>
         
           <button onClick={capture}>Capture photo</button>
-
-        </div>
+          <ImagePicker
+            extensions={['jpg', 'jpeg']}
+            dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
+            onChange={base64 => {
+              console.log(base64)
+              setImgSrc(base64)
+              setDisplay(false)
+            }}
+            onError={base64 => console.log("Error")}
+          >
+            <button>
+              Click to upload image
+            </button>
+          </ImagePicker>
+                </div>
       );
     }
     else {
@@ -55,7 +73,8 @@ const Camera = () => {
           )}
           <div className="buttonBlock">
           <button onClick={retake}>Retake</button>
-          <button onClick={retake}>Proceed</button>
+          <button onClick={proc}>Proceed</button>
+
           </div>
 
         </div>
