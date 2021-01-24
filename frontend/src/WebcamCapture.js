@@ -4,14 +4,15 @@ import Webcam from "react-webcam"
 import "./Camera.css"
 import axios from 'axios'
 import {ImagePicker} from "react-file-picker"
+import { Form } from 'semantic-ui-react'
 
 const Camera = () => {
     var webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = React.useState(null);
     const [display, setDisplay] = useState(true);
     const [age, setAge] = useState('')
-    const [gender, setGender] = useState('')
-    const [race, setRace] = useState('')
+    const [gender, setGender] = useState('Male')
+    const [race, setRace] = useState('White')
     const capture = React.useCallback(() => {
       const imageSrc = webcamRef.current.getScreenshot();
       console.log(imageSrc)
@@ -50,6 +51,11 @@ const Camera = () => {
     const handleRaceChange = (event) => {
       setRace(event.target.value)
     }
+
+
+
+
+
     if (display) {
       return (
         <div>
@@ -79,24 +85,31 @@ const Camera = () => {
               </button>
             </ImagePicker>
           </div>
+          <p className="button3 text">Manual Inputs</p>
+          
+          <Form.Group inline className="button3">
+            <label>Gender: </label>
+            <Form.Radio label="Male" checked={gender === 'Male'} value="Male" onClick={() => setGender('Male')} />
+            <Form.Radio label="Female" checked={gender === 'Female'} value="Female" onClick={() => setGender('Female')} />
+          </Form.Group>
+          <Form.Group inline className="button3">
+            <label>Race: </label>
+            <Form.Radio label="White" checked={race === 'White'} value="White" onClick={() => setRace('White')} />
+            <Form.Radio label="Black" checked={race === 'Black'} value="Black" onClick={() => setRace('Black')} />
+            <Form.Radio label="Asian" checked={race === 'Asian'} value="Asian" onClick={() => setRace('Asian')} />
+            <Form.Radio label="Indian" checked={race === 'Indian'} value="Indian" onClick={() => setRace('Indian')} />
+          </Form.Group>
           <form onSubmit={addData} className='button2'>
               <div>
                 Age: <input value={age} onChange={handleAgeChange} className="formElement"/>
+                <button type="submit">save</button>
               </div>
-              <div>
-                Gender: <input value={gender} onChange={handleGenderChange} className="formElement"/>
-              </div>
-              <div>
-                Race: <input value={race} onChange={handleRaceChange} className="formElement"/>
-              </div>
-              <button type="submit">save</button>
-            </form> 
+          </form> 
+          
         </div>
       );
     }
     
-
-
     else {
       return (
         <div className="body">

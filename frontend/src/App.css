@@ -20,9 +20,6 @@ button {
   cursor: pointer;
   background-color: #4CAF50;
   border-radius: 5px;
-  width: 200px;
-  height: 100px;
-  
 }
 
 button:hover {
