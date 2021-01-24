@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import './App.css';
 import Typical from "react-typical"
@@ -62,10 +63,10 @@ const App = () => {
         </div>
       </div>
 
+
       
     </div>
   );
 }
-
 
 export default App;
