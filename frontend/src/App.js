@@ -10,8 +10,8 @@ const typicalStyle = {
   color: 'grey',
   fontWeight: 'bold',
   fontSize: 30,
-  paddingLeft: 400,
-  paddingRight: 400,
+  paddingLeft: 50,
+  paddingRight: 50,
   paddingTop: 50,
   paddingBottom: 200
 }
@@ -52,7 +52,7 @@ const App = () => {
     setPageState(1)
   }
 
-  if (pageState == 0) {
+  if (pageState === 0) {
     return (
       <div className="App">
         <div className="Into">
@@ -68,7 +68,7 @@ const App = () => {
         
       </div>
     );
-  } else if (pageState == 1) {
+  } else if (pageState === 1) {
     return (
       <div>
         <Camera></Camera>

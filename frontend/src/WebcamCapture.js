@@ -2,12 +2,13 @@ import React from "react"
 import {useState} from "react"
 import Webcam from "react-webcam"
 import "./Camera.css"
+import axios from 'axios'
+
 
 const Camera = () => {
     var webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = React.useState(null);
     const [display, setDisplay] = useState(true);
-  
     const capture = React.useCallback(() => {
       const imageSrc = webcamRef.current.getScreenshot();
       console.log(imageSrc)
@@ -15,6 +16,13 @@ const Camera = () => {
       setDisplay(false)
       
     }, [webcamRef, setImgSrc]);
+
+
+    const imgObject = {
+      img: imgSrc
+    }
+
+    axios.post('http://127.0.0.1:5000/predict', imgObject)
 
     const retake = () => {
       setDisplay(true)
@@ -41,7 +49,7 @@ const Camera = () => {
       return (
         <div className="body">
           {imgSrc && (
-            <img classname="displayImage"
+            <img className="displayImage"
               src={imgSrc}
             />
           )}
