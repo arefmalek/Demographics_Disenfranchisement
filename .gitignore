@@ -1,3 +1,8 @@
+# a bunch of virtualenv stuff I dont want
+lib/
+frontend/node_modules/
+node_modules/
+
 # the entire dataset of faces (that has been unzipped)
 data/
-frontend/node_modules/
+share/

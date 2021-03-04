@@ -54,7 +54,6 @@ def process(filename):
     return age(ti), race(ti), gender(ti)
     return age(ti).mean().item(), race(ti).mean().item(), gender(ti).mean().item()
 
-
 age, race, gender = process("image.jpg")
 print(age)
 print(race)
